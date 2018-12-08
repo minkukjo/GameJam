@@ -5,21 +5,22 @@ using UnityEngine;
 public class Move2DPlayer : MonoBehaviour {
 
     public float Speed = 10.0f;
+    public Animator anim;
 	// Use this for initialization
 	void Start () {
-		
+        anim = transform.GetComponent<Animator>();
 	}
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * Speed);
-        }
-        else if(Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * Speed);
-        }
+        transform.Translate(Vector3.right * Time.deltaTime * Speed);
+        anim.Play("Run");
+        Invoke("move_turn", 3);
+    }
+
+    void move_turn()
+    {
+        
     }
 }

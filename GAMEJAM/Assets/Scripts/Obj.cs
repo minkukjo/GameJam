@@ -15,7 +15,7 @@ public class Obj : MonoBehaviour {
 	{
         Player = GameObject.Find("Player");
 	}
-	public  virtual void OnGetThisObj()//클릭시
+	public virtual void OnGetThisObj()//클릭시
     {
         StageManager.instance.AddCountObj();
         VFXinstance= Instantiate(VFX, transform.position, transform.rotation);
